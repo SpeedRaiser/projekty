@@ -1,7 +1,20 @@
+const ceskaSlovaList = [
+    "stroj", "slovo", "místo", "kniha", "srdce", "písek", "obraz",
+    "duben", "štěrk", "strop", "kámen", "hříva", "tábor", "láska", "pohár", "závod",
+    "tráva", "báseň","život", "plány","karta", "zebra", "dárek","práce","kočka","město", "pasta",
+    "malba","třída","černý", "pepek", "olovo"
+];
+
+// Funkce pro náhodný výběr slova
+const vyberNahodneSlovo = () => {
+    const nahodnyIndex = Math.floor(Math.random() * ceskaSlovaList.length);
+    return ceskaSlovaList[nahodnyIndex];
+};
+
 let word = "";
 const maxWordLength = 5;
 const maxTries = 6;
-let solution = "hello";
+let solution = vyberNahodneSlovo();
 let tries = 1;
 
 //klavesnice
@@ -64,15 +77,52 @@ const judgeResult = () => {
     if(word === solution){
         animateTileDance(currentRow())
         setTimeout(() => {
-            alert("Gratuluji, uhodl jsi slovo!")
-        }, 1000)
+            zobrazVysledek("🥳 Gratuluji, uhodl jsi slovo! 🎉")
+        }, 1500)
     } else if (tries >= maxTries) {
-        alert("řešení bylo: " + solution + " :(")
+        animateTileReveal(currentRow())
+        setTimeout(() => {
+            zobrazVysledek("Řešení bylo: " + solution + " :(")
+        }, 1500)
     }
     else {
         word = "";
         tries++;
     }
+}
+
+const zobrazVysledek = (zprava) => {
+    const overlay = document.createElement('div')
+    overlay.classList.add('overlay')
+    
+    const modal = document.createElement('div')
+    modal.classList.add('modal')
+    
+    const textZpravy = document.createElement('p')
+    textZpravy.textContent = zprava
+    
+    const tlacitko = document.createElement('button')
+    tlacitko.textContent = 'Hrát znovu'
+    tlacitko.classList.add('tlacitko-obnovit')
+    tlacitko.addEventListener('click', () => {
+        location.reload()
+    })
+    
+    modal.appendChild(textZpravy)
+    modal.appendChild(tlacitko)
+    overlay.appendChild(modal)
+    document.body.appendChild(overlay)
+}
+
+// Nová funkce pro zobrazení tlačítka obnovení
+const zobrazTlacitkoObnovit = () => {
+    const tlacitko = document.createElement('button')
+    tlacitko.textContent = 'Hrát znovu'
+    tlacitko.classList.add('tlacitko-obnovit')
+    tlacitko.addEventListener('click', () => {
+        location.reload()
+    })
+    document.body.appendChild(tlacitko)
 }
 
 //animace
