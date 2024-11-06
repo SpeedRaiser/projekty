@@ -7,8 +7,30 @@
     <link rel="stylesheet" href="styly.css">
 </head>
 <body>
-    <div id="skore">Skóre: 0</div>
-    <canvas id="herniPlocha" width="400" height="400"></canvas>
+    <div id="dialog" style="display: block;">
+        <div id="dialogContent">
+            <h1>Hra Had</h1>
+            <p>Vyberte obtížnost:</p>
+            <button onclick="nastavObtiznost('snadna')" id="snadna">Snadná</button>
+            <button onclick="nastavObtiznost('stredni')" id="stredni">Střední</button>
+            <button onclick="nastavObtiznost('tezka')" id="tezka">Těžká</button>
+        </div>
+    </div>
+    <div id="skore" style="display: none;">Skóre: 0</div>
+    <canvas id="herniPlocha" width="300" height="300"></canvas>
+    <div id="gameOverDialog" style="display: none;">
+        <div id="dialogContent">
+            <p id="finalScore"></p>
+            <!--<button id="restartButton" onclick="restartujHru()">Restartovat</button><br> -->
+            <button id="menuButton" onclick="vratSeDoMenu()">Návrat do menu</button>
+        </div>
+    </div>
+    <div id="winDialog" style="display: none;">
+        <div id="dialogContent">
+            <p id="winMessage">Vyhrál jsi!</p>
+            <button id="menuButton" onclick="vratSeDoMenu()">Návrat do menu</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

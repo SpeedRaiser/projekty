@@ -16,3 +16,68 @@ body {
     position: absolute;
     font-size: 20px;
 }
+#dialog, #gameOverDialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 1000; /* Zajištění, že dialog bude nad ostatními prvky */
+}
+#dialogContent {
+    text-align: center;
+}
+#restartButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: red; /* Zelené pozadí */
+    color: white; /* Bílý text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#restartButton:hover {
+    background-color: darkred; /* Tmavší zelená při najetí myší */
+}
+#menuButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: green; /* Modré pozadí */
+    color: white; /* Bílý text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#menuButton:hover {
+    background-color: darkgreen; /* Tmavší modrá při najetí myší */
+}
+
+button {
+    padding: 10px 20px; /* Vnitřní okraje */
+    font-size: 16px; /* Velikost písma */
+    border: none; /* Bez okraje */
+    border-radius: 5px; /* Zaoblení rohů */
+    cursor: pointer; /* Ukazatel myši při najetí */
+    margin: 5px; /* Okraje mezi tlačítky */
+    transition: background-color 0.3s; /* Plynulý přechod barvy pozadí */
+}
+
+#snadna {
+    background-color: #4CAF50; /* Zelená pro snadnou obtížnost */
+    color: white; /* Bílý text */
+}
+
+#stredni {
+    background-color:  #FFC107; /* Modrá pro střední obtížnost */
+    color: white; /* Bílý text */
+}
+
+#tezka {
+    background-color: #f44336; /* Červená pro těžkou obtížnost */
+    color: white; /* Bílý text */
+}
