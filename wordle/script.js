@@ -16,10 +16,11 @@ const maxWordLength = 5;
 const maxTries = 6;
 let solution = vyberNahodneSlovo();
 let tries = 1;
+let animationActive = false;
 
 //klavesnice
 document.addEventListener("keydown", (event) => {
-    if(event.key === "Enter"){
+    if(event.key === "Enter" && animationActive === false){
         submitWord()
     }
     else if(event.key === "Backspace"){
@@ -35,11 +36,12 @@ document.addEventListener("keydown", (event) => {
 //funkce pro pridani, odebrani, posilani slov
 const submitWord = () => {
     if (word.length !== maxWordLength) return;
-
+    animationActive = true;
     animateTileReveal(currentRow())
 
     setTimeout(() => {
         judgeResult()
+        animationActive = false;
     }, 1500)
 }
 const addLetter = (character) => {
