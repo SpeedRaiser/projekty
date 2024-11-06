@@ -1,0 +1,18 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+#herniPlocha {
+    border: 2px solid #333;
+}
+#skore {
+    text-align: center;
+    top: 6%;
+    position: absolute;
+    font-size: 20px;
+}

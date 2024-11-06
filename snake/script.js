@@ -76,10 +76,14 @@ document.addEventListener('keydown', zmenSmer);
 
 function zmenSmer(event) {
     const klic = event.keyCode;
-    if (klic === 37 && dx === 0) { dx = -velikostBunky; dy = 0; }      // Vlevo
-    else if (klic === 38 && dy === 0) { dx = 0; dy = -velikostBunky; } // Nahoru
-    else if (klic === 39 && dx === 0) { dx = velikostBunky; dy = 0; }  // Vpravo
-    else if (klic === 40 && dy === 0) { dx = 0; dy = velikostBunky; }  // Dolů
+    if (klic === 37 && dx === 0) { dx = -velikostBunky; dy = 0; }      // Vlevo (šipka)
+    else if (klic === 38 && dy === 0) { dx = 0; dy = -velikostBunky; } // Nahoru (šipka)
+    else if (klic === 39 && dx === 0) { dx = velikostBunky; dy = 0; }  // Vpravo (šipka)
+    else if (klic === 40 && dy === 0) { dx = 0; dy = velikostBunky; }  // Dolů (šipka)
+    else if (klic === 65 && dx === 0) { dx = -velikostBunky; dy = 0; } // Vlevo (A)
+    else if (klic === 87 && dy === 0) { dx = 0; dy = -velikostBunky; } // Nahoru (W)
+    else if (klic === 68 && dx === 0) { dx = velikostBunky; dy = 0; }  // Vpravo (D)
+    else if (klic === 83 && dy === 0) { dx = 0; dy = velikostBunky; }  // Dolů (S)
 }
 
 hra();
