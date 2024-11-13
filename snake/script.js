@@ -4,11 +4,18 @@ const ctx = canvas.getContext('2d');
 const velikostBunky = 20;
 let skore = 0;
 let had = [];
-let jidlo = null;
+let jidloX = null;
+let jidloY = null;
 let dx = velikostBunky;
 let dy = 0;
 let rychlost = 100; // Výchozí rychlost hry
-let aktualniObtiznost = 'snadna'; // Výchozí obtížnost
+let aktualniObtiznost = ''; // Výchozí obtížnost
+let hadX = 100; // Nová proměnná pro X pozici hlavy hada
+let hadY = 100; // Nová proměnná pro Y pozici hlavy hada
+
+// Inicializace obrázku
+const jidloObrazek = new Image();
+jidloObrazek.src = 'jablko.png'; // Změněno na jablko.jpg
 
 // Funkce pro nastavení obtížnosti
 function nastavObtiznost(obtiznost) {
@@ -34,6 +41,8 @@ function nastavObtiznost(obtiznost) {
 // Funkce pro restartování hry
 function restartujHru() {
     skore = 0; // Reset skóre
+    hadX = 100; // Reset X pozice hlavy hada
+    hadY = 100; // Reset Y pozice hlavy hada
     dx = velikostBunky; // Reset směru
     dy = 0; // Reset směru
     if (aktualniObtiznost === 'snadna') {
@@ -44,11 +53,11 @@ function restartujHru() {
         rychlost = 70; // Rychlost pro těžkou obtížnost
     }
     had = [ // Inicializace hada
-        {x: 100, y: 100},
-        {x: 80, y: 100},
-        {x: 60, y: 100},
+        {x: hadX, y: hadY},
+        {x: hadX - velikostBunky, y: hadY},
+        {x: hadX - 2 * velikostBunky, y: hadY},
     ];
-    jidlo = vytvorJidlo(); // Vytvoření nového jídla
+    vytvorJidlo(); // Vytvoření nového jídla
     document.getElementById('skore').innerText = "Skóre: " + skore; // Aktualizace zobrazení skóre
     document.getElementById('gameOverDialog').style.display = 'none'; // Skrýt dialog po prohře
     hra(); // Spustit hru znovu
@@ -56,32 +65,26 @@ function restartujHru() {
 
 // Funkce pro vytvoření jídla
 function vytvorJidlo() {
-    let newJidlo;
     let occupied = true;
 
     while (occupied) {
         occupied = false; // Předpokládáme, že pozice není obsazena
-        newJidlo = {
-            x: Math.floor(Math.random() * (canvas.width / velikostBunky)) * velikostBunky,
-            y: Math.floor(Math.random() * (canvas.height / velikostBunky)) * velikostBunky
-        };
+        jidloX = Math.floor(Math.random() * (canvas.width / velikostBunky)) * velikostBunky;
+        jidloY = Math.floor(Math.random() * (canvas.height / velikostBunky)) * velikostBunky;
 
         // Kontrola, zda je nová pozice obsazena hadem
         for (let i = 0; i < had.length; i++) {
-            if (had[i].x === newJidlo.x && had[i].y === newJidlo.y) {
+            if (had[i].x === jidloX && had[i].y === jidloY) {
                 occupied = true; // Pozice je obsazena, hledáme novou
                 break;
             }
         }
     }
-
-    return newJidlo; // Vrátíme novou pozici jídla
 }
 
 // Funkce pro vykreslení jídla
 function vykresliJidlo() {
-    ctx.fillStyle = 'red'; // Barva jídla
-    ctx.fillRect(jidlo.x, jidlo.y, velikostBunky, velikostBunky);
+    ctx.drawImage(jidloObrazek, jidloX, jidloY, velikostBunky, velikostBunky); // Vykreslení obrázku jídla
 }
 
 // Funkce pro vykreslení hada
@@ -94,17 +97,19 @@ function vykresliHada() {
 
 // Funkce pro posun hada
 function posunHada() {
-    const hlava = {x: had[0].x + dx, y: had[0].y + dy};
-    had.unshift(hlava); // Přidání nové hlavy hada
+    hadX += dx; // Aktualizace X pozice hlavy hada
+    hadY += dy; // Aktualizace Y pozice hlavy hada
 
     // Kontrola, zda had sežral jídlo
-    if (hlava.x === jidlo.x && hlava.y === jidlo.y) {
+    if (hadX === jidloX && hadY === jidloY) {
         skore++;
         document.getElementById('skore').innerText = "Skóre: " + skore;
-        jidlo = vytvorJidlo(); // Vytvoření nového jídla
+        vytvorJidlo(); // Vytvoření nového jídla
     } else {
         had.pop(); // Odstranění posledního segmentu hada, pokud se jídlo nesnědlo
     }
+
+    had.unshift({x: hadX, y: hadY}); // Přidání nové hlavy hada
 }
 
 // Funkce pro kontrolu kolize
@@ -147,14 +152,17 @@ function hra() {
 
 // Funkce pro zobrazení prohry
 function prohra() {
-    document.getElementById('finalScore').innerText = "Skóre: " + skore + "\nProhráli jste!";
+    document.getElementById('finalScore').innerText = "Skóre: " + skore;
     document.getElementById('gameOverDialog').style.display = 'block'; // Zobrazit dialog
 }
 
 document.addEventListener('keydown', zmenSmer);
 
+
+
 function zmenSmer(event) {
     const klic = event.keyCode;
+
     if (klic === 37 && dx === 0) { dx = -velikostBunky; dy = 0; }      // Vlevo (šipka)
     else if (klic === 38 && dy === 0) { dx = 0; dy = -velikostBunky; } // Nahoru (šipka)
     else if (klic === 39 && dx === 0) { dx = velikostBunky; dy = 0; }  // Vpravo (šipka)
@@ -171,11 +179,14 @@ function zmenSmer(event) {
     if ((klic === 38 && dy === velikostBunky) || (klic === 40 && dy === -velikostBunky)) {
         return; // Zabránit otočení nahoru, pokud se had pohybuje dolů
     }
+    // Nové podmínky pro zabránění otočení na opačný směr
+    if ((klic === 37 && had.length > 0 && dx !== 0) || (klic === 39 && had.length > 0 && dx !== 0)) {
+        return; // Zabránit otočení vlevo nebo vpravo, pokud had již není v pohybu
+    }
+    if ((klic === 38 && had.length > 0 && dy !== 0) || (klic === 40 && had.length > 0 && dy !== 0)) {
+        return; // Zabránit otočení nahoru nebo dolů, pokud had již není v pohybu
+    }
 }
-
-/*document.getElementById('restartButton').addEventListener('click', function() {
-    restartujHru(); // Funkce pro restartování hry
-}); */
 
 // Funkce pro návrat do menu
 function vratSeDoMenu() {
@@ -184,6 +195,7 @@ function vratSeDoMenu() {
     document.getElementById('dialog').style.display = 'block'; // Zobrazit menu
     skore = 0; // Reset skóre
     had = []; // Reset hada
-    jidlo = null; // Reset jídla
+    jidloX = null; // Reset jídla X
+    jidloY = null; // Reset jídla Y
 }
-hra();
+
