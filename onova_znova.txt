@@ -1,0 +1,26 @@
+OSNOVA
+1.	Teoretická část
+a.	Webové technologie (zde popíšu jednotlivé jazyky, k čemu se používají, historie):
+i.	HTML: Základní struktura webu
+ii.	CSS: Využití pro design a responzivitu
+iii.	JavaScript: Základy interaktivní logiky, animace a herní smyčky
+b.	Mini-hry (zde budou typy miniher, příklady, možná i historie, jak vznikali v průběhu let):
+i.	Krátký přehled různých typů mini-her (např. arkádové hry, puzzle, skákací hry) 
+ii.	Historie her
+c.	Vybrané mini-hry (zde budou vybrané minihry, které jsem naprogramoval):
+i.	–
+ii.	–
+iii.	–
+2.	Praktická část:
+a.	Struktura stránky
+i.	Popíšu vytvoření hlavní části stránky v HTML
+ii.	Přidání hlavičky (např. pro jméno stránky nebo vyskakovací menu s výběrem žánru minihry (např. skákačka, …), nebo lupa pro vyhledání mini-hry)
+iii.	Dále se přidají jednotlivé minihry
+b.	Responzivita a styly v CSS
+i.	Popíšu vytvoření stylů pro hlavní stránku
+ii.	Zároveň zde bude i rezponzivita pro menší obrazovky
+iii.	Styly pro jednotlivé minihry
+c.	Mini-hry
+i.	Popíšu každou minihru (nebo aspoň 3 hlavní, dále jak jsem je vytvářel, co jsem u toho použil, jak jsem vyřešil jednotlivé problémy/bugy) 
+d.	Dodatečné funkce
+Zde budou další funkce, které se budou hodit např. v hlavičce může mít stránka menu, kde bude např. ovládání hlasitosti nebo jednotlivé minihry můžou mít tlačítko pro ovládání zvuku, noční režim, který změní pozadí stránky z bíle na 
