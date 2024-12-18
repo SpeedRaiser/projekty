@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Šachovnice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="currentPlayerDisplay" class="player-display">Na tahu: Bílý</div>
+    <div class="board">
+        <!-- Dynamicky naplníme šachovnici pomocí JavaScriptu -->
+    </div>
+    <div id="promotionModal" class="modal">
+        <div class="modal-content">
+            <p>Vyberte figuru pro proměnu:</p>
+            <button class="promotion-option" data-piece="♕">Dáma</button>
+            <button class="promotion-option" data-piece="♖">Věž</button>
+            <button class="promotion-option" data-piece="♗">Střelec</button>
+            <button class="promotion-option" data-piece="♘">Jezdec</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

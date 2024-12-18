@@ -1,0 +1,79 @@
+/* hlavička*/
+header{
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.settings-icon{
+    cursor: pointer;
+    font-size: 2em;
+    margin-bottom: 10px;
+    margin-left: auto;
+}
+
+.title {
+    font-size: 2em; 
+    margin: 0; 
+    font-family: system-ui;
+    margin-left: 15px; 
+}
+/* pro vyhledávač*/
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0; 
+    border-radius: 20px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+#search {
+    border: none; 
+    outline: none;
+    padding: 8px; 
+    border-radius: 20px; 
+    width: 250px; 
+    background-color: #f0f0f0; 
+    font-family: system-ui;
+}
+
+.search-button {
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+/* pro tlačítka minihry na main stránce*/
+.game-container {
+    display: flex;
+    margin-top: 20px; /
+}
+
+.game-box {
+    width: 200px; 
+    height: 150px; 
+    background-size: cover; /* Přizpůsobení obrázku */
+    background-position: center; 
+    border-radius: 10px; 
+    display: flex;
+    align-items: flex-end; /* Zarovnání textu na spodní část */
+    justify-content: center; 
+    font-size: 1.5em;
+    font-family: system-ui;
+    margin: 10px; /* volný místo mezi boxy */
+    color: white;
+    padding: 10px;
+    transition: transform 0.3s;
+}
+
+.game-box:hover {
+    transform: scale(1.05); /* Zvětšení boxu při najetí myší */
+}
