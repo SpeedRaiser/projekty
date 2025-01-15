@@ -1,0 +1,142 @@
+header{
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.settings-icon{
+    cursor: pointer;
+    font-size: 2em;
+    margin-bottom: 10px;
+    margin-left: auto;
+    transition: transform 0.3s; /* pro plynulý přechod */
+}
+
+.settings-icon:hover {
+    transform: rotate(45deg); /* animace pro otočení */
+}
+
+.title {
+    font-size: 2em; 
+    margin: 0; 
+    font-family: system-ui;
+    margin-left: 15px; 
+}
+/* pro vyhledávač*/
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0; 
+    border-radius: 20px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+#search {
+    border: none; 
+    outline: none;
+    padding: 8px; 
+    border-radius: 20px; 
+    width: 250px; 
+    background-color: #f0f0f0; 
+    font-family: system-ui;
+}
+
+.search-button {
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.cookie {
+    position: relative; 
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+    background-color: #D2B48C;
+    border-radius: 50%;
+    transform: translateX(100px);
+}
+
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #8B4513;
+}
+
+#skore {
+    text-align: center;
+    margin-top: 20px;
+    font-family: system-ui;
+}
+
+.plus-jedna {
+    position: absolute;
+    font-size: 30px;
+    font-family: system-ui;
+    animation: zmizeni 1s forwards;
+    pointer-events: none;
+}
+
+@keyframes zmizeni {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+
+#resetBtn {
+    display: block;
+    justify-self: center;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px;
+}
+
+.upgrades {
+    margin-left: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-family: system-ui;
+}
+
+.upgrade-btn {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: system-ui;
+}

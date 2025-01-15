@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookie clicker</title>
+    <link rel="stylesheet" href="styly.css">
+</head>
+<body>
+    <header>
+        <div class="menu-icon">☰</div>
+        <h1 class="title">chytrý název</h1>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Hledat hry...">
+            <button class="search-button">🔍</button>
+        </div>
+        <div class="settings-icon">⚙️</div>
+    </header>
+    <div class="main-content">
+        <div class="cookie" id="cookie"></div>
+        <div class="upgrades" id="upgrades">
+            <h2>Vylepšení</h2>
+            <button class="upgrade-btn" data-cost="10" data-increment="1">+1 klik za 10 cookies</button>
+                        <!-- Další upgrady mohou být přidány zde -->
+        </div>
+    </div>
+    <div id="skore">cookies: 0</div>
+    <button id="resetBtn">Reset</button>
+    <script src="script.js"></script>
+</body>
+</html>
