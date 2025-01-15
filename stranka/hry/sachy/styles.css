@@ -1,0 +1,154 @@
+header{
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.settings-icon{
+    cursor: pointer;
+    font-size: 2em;
+    margin-bottom: 10px;
+    margin-left: auto;
+    transition: transform 0.3s; /* pro plynulý přechod */
+}
+
+.settings-icon:hover {
+    transform: rotate(45deg); /* animace pro otočení */
+}
+
+.title {
+    font-size: 2em; 
+    margin: 0; 
+    font-family: system-ui;
+    margin-left: 15px; 
+}
+/* pro vyhledávač*/
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0; 
+    border-radius: 20px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+#search {
+    border: none; 
+    outline: none;
+    padding: 8px; 
+    border-radius: 20px; 
+    width: 250px; 
+    background-color: #f0f0f0; 
+    font-family: system-ui;
+}
+
+.search-button {
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+body {
+    margin: 8px;
+    overflow: hidden;
+}
+
+.game-container {
+    display: flex;
+    justify-content: center; /* Horizontální zarovnání na střed */
+    align-items: center; /* Vertikální zarovnání na střed */
+    height: calc(100vh - 110px); /* Zmenšení výšky kontejneru, aby se vešel pod hlavičku */
+    width: 100%; /* Celá šířka */
+    margin-top: 0px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(8, 55px);
+    grid-template-rows: repeat(8, 55px);
+    gap: 0;
+    border: 4px solid #8b4513; /* Hnědý okraj kolem šachovnice */
+    border-radius: 8px; /* Zaoblení rohů pro lepší vzhled */
+    background-color: transparent; /* Pozadí šachovnice, aby okraj byl viditelný */
+    margin: 20px; /* Přidání odsazení pro oddělení od kontejneru */
+}
+
+.square {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #7f4500; /* Okraje jednotlivých políček s tmavším hnědým odstínem */
+    font-size: 40px; /* Zvětšíme font pro figurky */
+    cursor: pointer;
+}
+
+.square.black {
+    background-color: #8b4513; /* Tmavě hnědá pro černá pole */
+}
+
+.square.white {
+    background-color: #d2b48c; /* Světle hnědá pro bílá pole (barva "tan") */
+}
+
+.square.highlight {
+    background-color: #90ee90; /* Světle zelená pro označená pole */
+}
+
+.modal {
+    display: none; /* Skryté ve výchozím nastavení */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 20% auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 200px; /* Zmenšená šířka */
+    text-align: center;
+}
+
+.promotion-options {
+    display: flex;
+    justify-content: space-around;
+}
+
+.promotion-option {
+    margin: 5px;
+    padding: 5px;
+    font-size: 24px; /* Větší font pro lepší viditelnost */
+    cursor: pointer;
+    border: none;
+    background-color: #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.promotion-option:hover {
+    background-color: #ccc;
+}
+
+.player-display {
+    font-family: system-ui;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+    margin-top: 5px;
+}
+
