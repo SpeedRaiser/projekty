@@ -3,9 +3,6 @@ let skore = 0;
 let klikIncrement = 1;
 let upgradeCountX2 = 0; // Počet zakoupených x2 upgradů
 let x2UpgradePurchased = false; // Flag pro sledování, zda byl upgrade x2 zakoupen
-let autoClickerActive = false; // Přidání proměnné pro sledování stavu automatického klikání
-let autoClickerCount = 0; // Přidání proměnné pro sledování počtu zakoupených automatických kliknutí
-let autoClickerInterval; // Přidání proměnné pro interval automatického klikání
 
 function vykresliKruh(x, y, velikost) {
     const kruh = document.createElement('div');
@@ -59,18 +56,8 @@ document.getElementById('resetBtn').addEventListener('click', () => {
     klikIncrement = 1;
     upgradeCountX2 = 0; // Reset počtu x2 upgradů
     x2UpgradePurchased = false; // Reset flagu pro upgrade x2
-    autoClickerActive = false; // Zastavení automatického klikání
-    autoClickerCount = 0; // Reset počtu zakoupených automatických kliknutí
-    clearInterval(autoClickerInterval); // Zastavení automatického klikání
     obnovStylTlacitek();
     aktualizujTlacitka();
-
-    // Resetování cen upgradů
-    document.querySelectorAll('.upgrade-btn').forEach(button => {
-        const initialCost = parseInt(button.getAttribute('data-initial-cost')); // Získání počáteční ceny
-        button.setAttribute('data-cost', initialCost); // Resetování ceny na počáteční hodnotu
-        button.textContent = `${button.textContent.split(' (cena:')[0]} (cena: ${initialCost} cookies)`; // Aktualizace textu tlačítka
-    });
 });
 
 function obnovStylTlacitek() {
@@ -99,54 +86,6 @@ function aktualizujTlacitka() {
     });
 }
 
-// Funkce pro spuštění automatického klikání
-function startAutoClicker() {
-    if (!autoClickerActive) { // Spustí automatické klikání pouze pokud není aktivní
-        autoClickerActive = true; // Aktivace automatického klikání
-        autoClickerInterval = setInterval(randomClick, 1000); // Počáteční interval 1 sekunda
-    }
-}
-
-// Funkce pro aktualizaci intervalu automatického klikání
-function updateAutoClickerInterval() {
-    if (autoClickerActive) {
-        clearInterval(autoClickerInterval); // Zastavení aktuálního intervalu
-        autoClickerInterval = setInterval(randomClick, 1000 / (autoClickerCount + 1)); // Změna intervalu na základě počtu zakoupených automatických kliknutí
-    }
-}
-
-// Funkce pro náhodné kliknutí na sušenku
-function randomClick() {
-    const cookie = document.getElementById('cookie'); // Předpokládám, že sušenka má ID 'cookie'
-    const rect = cookie.getBoundingClientRect();
-    
-    // Generování náhodných souřadnic uvnitř sušenky
-    const x = Math.random() * rect.width + rect.left;
-    const y = Math.random() * rect.height + rect.top;
-
-    // Vytvoření a odeslání události kliknutí
-    const clickEvent = new MouseEvent('click', {
-        view: window,
-        bubbles: true,
-        cancelable: true,
-        clientX: x,
-        clientY: y
-    });
-
-    cookie.dispatchEvent(clickEvent);
-}
-
-//cheaty
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'p' || event.key === 'P') {
-        skore += 30000; // Přidání 30 000 bodů
-        document.getElementById('skore').textContent = 'cookies: ' + skore.toFixed(2); // Aktualizace zobrazení skóre
-    }
-});
-
-// Příklad použití: Spustí automatické klikání každou sekundu
-inicializujSusenku();
-
 // Přidání událostí pro upgrady
 document.querySelectorAll('.upgrade-btn').forEach(button => {
     button.addEventListener('click', () => {
@@ -154,12 +93,15 @@ document.querySelectorAll('.upgrade-btn').forEach(button => {
         const increment = parseInt(button.getAttribute('data-increment'));
         const autoClicker = button.getAttribute('data-auto-clicker') === 'true';
 
+        // Kontrola, zda byl upgrade x2 již zakoupen
+        if (increment === 2 && x2UpgradePurchased) {
+            return; // Pokud byl upgrade zakoupen, neprovádějte nic
+        }
+
         if (skore >= cost) {
             skore -= cost;
             if (autoClicker) {
-                autoClickerCount++; // Zvyšujeme počet zakoupených automatických kliknutí
-                startAutoClicker(); // Spustí automatické klikání
-                updateAutoClickerInterval(); // Aktualizuje interval automatického klikání
+                startAutoClicker(1000); // Spustí automatické klikání
             } else {
                 if (increment === 1) {
                     klikIncrement += increment; // Zvyšuje o 1
@@ -186,3 +128,32 @@ document.querySelectorAll('.upgrade-btn').forEach(button => {
         }
     });
 });
+
+// Funkce pro náhodné kliknutí na sušenku
+function randomClick() {
+    const cookie = document.getElementById('cookie'); // Předpokládám, že sušenka má ID 'cookie'
+    const rect = cookie.getBoundingClientRect();
+    
+    // Generování náhodných souřadnic uvnitř sušenky
+    const x = Math.random() * rect.width + rect.left;
+    const y = Math.random() * rect.height + rect.top;
+
+    // Vytvoření a odeslání události kliknutí
+    const clickEvent = new MouseEvent('click', {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+        clientX: x,
+        clientY: y
+    });
+
+    cookie.dispatchEvent(clickEvent);
+}
+
+// Funkce pro spuštění automatického klikání
+function startAutoClicker(interval) {
+    return setInterval(randomClick, interval);
+}
+
+// Příklad použití: Spustí automatické klikání každou sekundu
+inicializujSusenku();
