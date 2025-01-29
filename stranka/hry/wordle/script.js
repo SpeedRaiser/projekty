@@ -2,7 +2,7 @@ const ceskaSlovaList = [
     "stroj", "slovo", "místo", "kniha", "srdce", "písek", "obraz",
     "duben", "štěrk", "strop", "kámen", "hříva", "tábor", "láska", "pohár", "závod",
     "tráva", "báseň","život", "plány","karta", "zebra", "dárek","práce","kočka","město", "pasta",
-    "malba","třída","černý", "pepek", "olovo"
+    "malba","třída","černý", "pepek", "olovo", "sigma"
 ];
 
 // Funkce pro náhodný výběr slova

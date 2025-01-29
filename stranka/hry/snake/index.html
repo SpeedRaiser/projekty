@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="styly.css">
 </head>
 <body>
+    <header>
+        <div class="menu-icon">☰</div>
+        <h1 class="title">chytrý název</h1>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Hledat hry...">
+            <button class="search-button">🔍</button>
+        </div>
+        <div class="settings-icon">⚙️</div>
+    </header>
+    <div class="menu" id="menu">
+        <ul>
+            <li><a href="../../index.html">🏠 Domů</a></li>
+            <li><a href="../../zanry/klikacky.html">👆 Klikačky</a></li>
+            <li><a href="../../zanry/puzzle.html">🧩 Puzzle</a></li>
+            <li><a href="../../zanry/strategie.html">🧠 Strategie</a></li>
+            <li><a href="../../zanry/action.html">🔥 Akční</a></li>
+            <li><a="#"> Pro 2 hráče</a></li>
+            <li><a="#"> Mobilní</a></li>
+        </ul>
+    </div>
     <div id="dialog" style="display: block;">
         <div id="dialogContent">
             <h1>Hra Had</h1>
@@ -32,5 +52,13 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        const menuIcon = document.querySelector('.menu-icon');
+        const menu = document.getElementById('menu');
+
+        menuIcon.addEventListener('click', () => {
+            menu.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>

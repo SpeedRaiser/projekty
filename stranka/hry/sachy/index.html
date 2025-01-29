@@ -16,6 +16,17 @@
         </div>
         <div class="settings-icon">⚙️</div>
     </header>
+    <div class="menu" id="menu">
+        <ul>
+            <li><a href="../../index.html">🏠 Domů</a></li>
+            <li><a href="../../zanry/klikacky.html">👆 Klikačky</a></li>
+            <li><a href="../../zanry/puzzle.html">🧩 Puzzle</a></li>
+            <li><a href="../../zanry/strategie.html">🧠 Strategie</a></li>
+            <li><a href="../../zanry/action.html">🔥 Akční</a></li>
+            <li><a href="#"> Pro 2 hráče</a></li>
+            <li><a href="#"> Mobilní</a></li>
+        </ul>
+    </div>
     <div id="currentPlayerDisplay" class="player-display">Na tahu: Bílý</div>
     <div class="game-container">
         <div class="board">
@@ -34,4 +45,12 @@
 
     <script src="script.js"></script>
 </body>
+<script>
+    const menuIcon = document.querySelector('.menu-icon');
+    const menu = document.getElementById('menu');
+
+    menuIcon.addEventListener('click', () => {
+        menu.classList.toggle('show');
+    });
+</script>
 </html>

@@ -56,6 +56,22 @@ header{
     margin-right: 5px;
 }
 
+h2 {
+    font-size: 1.6em; /* Velikost písma */
+    padding-left: 20px;
+    margin: 20px 0; /* Okraje nahoře a dole */
+    color: #333; /* Barva textu */
+    font-family: system-ui; /* Typ písma */
+}
+
+p {
+    font-size: 1.1em; /* Velikost písma */
+    margin: 10px 0; /* Okraje nahoře a dole */
+    color: #555; /* Barva textu */
+    padding-left: 20px; /* Posun od levého okraje */
+    font-family: system-ui; /* Typ písma */
+    line-height: 1.5; /* Výška řádku pro lepší čitelnost */
+}
 /* pro tlačítka minihry na main stránce*/
 .game-container {
     display: flex;
@@ -102,12 +118,13 @@ header{
     opacity: 1;
 }
 
+/* menu pro zanry */
 .menu {
     position: absolute;
-    left: -250px; /* Skryté mimo obrazovku */
-    top: 61px; /* Posunout dolů pod hlavičku */
-    width: 40px; /* Výchozí šířka pro ikony */
-    height: calc(100% - 60px); /* Zmenšit výšku, aby se vešlo pod hlavičku */
+    left: -250px; /* skryti mimo obrazovku */
+    top: 61px; 
+    width: 35px; 
+    height: 100%;
     background-color: white;
     border-right: 1px solid lightgray;
     transition: left 0.3s, width 0.3s; /* Přidat přechod pro šířku */
@@ -137,9 +154,11 @@ header{
 
 .menu li {
     padding: 15px;
+    transform: translateX(-2px); 
 }
 
 .menu a {
     text-decoration: none;
+    font-family: system-ui;
     color: black;
 }

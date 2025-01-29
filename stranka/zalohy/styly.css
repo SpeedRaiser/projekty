@@ -56,6 +56,23 @@ header{
     margin-right: 5px;
 }
 
+h2 {
+    font-size: 1.6em; /* Velikost písma */
+    padding-left: 20px;
+    margin: 20px 0; /* Okraje nahoře a dole */
+    color: #333; /* Barva textu */
+    font-family: system-ui; /* Typ písma */
+}
+
+p {
+    font-size: 1.1em; /* Velikost písma */
+    margin: 10px 0; /* Okraje nahoře a dole */
+    color: #555; /* Barva textu */
+    padding-left: 20px; /* Posun od levého okraje */
+    font-family: system-ui; /* Typ písma */
+    line-height: 1.5; /* Výška řádku pro lepší čitelnost */
+}
+
 /* pro tlačítka minihry na main stránce*/
 .game-container {
     display: flex;
@@ -100,4 +117,49 @@ header{
 
 .game-box:hover::after {
     opacity: 1;
+}
+
+/* menu pro zanry */
+.menu {
+    position: absolute;
+    left: -250px; /* skryti mimo obrazovku */
+    top: 61px; 
+    width: 35px; 
+    height: 100vh;
+    background-color: white;
+    border-right: 1px solid lightgray;
+    transition: left 0.3s, width 0.3s; /* Přidat přechod pro šířku */
+    z-index: 1000; /* Aby bylo menu nad ostatními prvky */
+    overflow: hidden; /* Skryje text, který se nevejde */
+}
+
+.menu.show {
+    left: 0; /* Zobrazit menu */
+}
+
+.menu:hover {
+    width: 140px; /* Zvětšit šířku při najetí myší */
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    opacity: 0; /* Skryté, dokud není menu zobrazeno */
+    transition: opacity 0.3s; /* Přechod pro zobrazení */
+    white-space: nowrap; /* Zabránit přechodu textu na další řádek */
+}
+
+.menu.show ul {
+    opacity: 1; /* Zobrazit seznam, když je menu otevřené */
+}
+
+.menu li {
+    padding: 15px;
+    transform: translateX(-2px); 
+}
+
+.menu a {
+    text-decoration: none;
+    font-family: system-ui;
+    color: black;
 }

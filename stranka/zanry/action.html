@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styly.css">
+</head>
+<body>
+    <header>
+        <div class="menu-icon">☰</div>
+        <h1 class="title">chytrý název</h1>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Hledat hry...">
+            <button class="search-button">🔍</button>
+        </div>
+        <div class="settings-icon">⚙️</div>
+    </header>
+    <h2>Akční</h2>
+    <p>Chcete nějakou akci nebo si jen zastřílet? Máme pro vás připravné 2D hry.</p>
+    <div class="game-container">
+        <a href="../hry/snake/index.html" class="game-box" style="background-image: url('../obrazky/snake_main.png');" data-title="Had"></a>
+    </div>
+    <div class="menu" id="menu">
+        <ul>
+            <li><a href="../index.html">🏠 Domů</a></li>
+            <li><a href="klikacky.html">👆 Klikačky</a></li>
+            <li><a href="puzzle.html">🧩 Puzzle</a></li>
+            <li><a href="strategie.html">🧠 Strategie</a></li>
+            <li><a href="action.html">🔥 Akční</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    const menuIcon = document.querySelector('.menu-icon');
+    const menu = document.getElementById('menu');
+
+    menuIcon.addEventListener('click', () => {
+        menu.classList.toggle('show');
+    });
+</script>
+</html>

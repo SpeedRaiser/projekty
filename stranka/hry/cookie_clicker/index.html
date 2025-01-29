@@ -16,6 +16,17 @@
         </div>
         <div class="settings-icon">⚙️</div>
     </header>
+    <div class="menu" id="menu">
+        <ul>
+            <li><a href="../../index.html">🏠 Domů</a></li>
+            <li><a href="../../zanry/klikacky.html">👆 Klikačky</a></li>
+            <li><a href="../../zanry/puzzle.html">🧩 Puzzle</a></li>
+            <li><a href="../../zanry/strategie.html">🧠 Strategie</a></li>
+            <li><a href="../../zanry/action.html">🔥 Akční</a></li>
+            <li><a href="#"> Pro 2 hráče</a></li>
+            <li><a href="#"> Mobilní</a></li>
+        </ul>
+    </div>
     <div class="main-content">
         <div class="cookie" id="cookie"></div>
         <div class="upgrades" id="upgrades">
@@ -25,8 +36,17 @@
             <button class="upgrade-btn" data-cost="150" data-increment="2">Zvýšení kliknutí x2 (cena: 150 cookies)</button>
         </div>
     </div>
+    
     <div id="skore">cookies: 0</div>
     <button id="resetBtn">Reset</button>
     <script src="script.js"></script>
 </body>
+<script>
+    const menuIcon = document.querySelector('.menu-icon');
+    const menu = document.getElementById('menu');
+
+    menuIcon.addEventListener('click', () => {
+        menu.classList.toggle('show');
+    });
+</script>
 </html>
