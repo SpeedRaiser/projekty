@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Had</title>
-    <link rel="stylesheet" href="styly.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../styly.css">
 </head>
 <body>
     <header>
         <div class="menu-icon">☰</div>
-        <h1 class="title">chytrý název</h1>
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Hledat hry...">
-            <button class="search-button">🔍</button>
-        </div>
+        <h1 class="title">MiniGameZone</h1>
         <div class="settings-icon">⚙️</div>
     </header>
     <div class="menu" id="menu">
@@ -23,14 +20,19 @@
             <li><a href="../../zanry/puzzle.html">🧩 Puzzle</a></li>
             <li><a href="../../zanry/strategie.html">🧠 Strategie</a></li>
             <li><a href="../../zanry/action.html">🔥 Akční</a></li>
-            <li><a="#"> Pro 2 hráče</a></li>
-            <li><a="#"> Mobilní</a></li>
+            <li><a href="../../zanry/2players.html">👨‍👨 Pro 2 hráče</a></li>
         </ul>
+    </div>
+    <div class="settings-menu">
+        <h2>Nastavení</h2>
+        <label class="night-mode-label">
+            <input type="checkbox" id="night-mode"> Noční režim
+        </label>
     </div>
     <div id="dialog" style="display: block;">
         <div id="dialogContent">
             <h1>Hra Had</h1>
-            <p>Vyberte obtížnost:</p>
+            <p id="vyber">Vyberte obtížnost:</p>
             <button onclick="nastavObtiznost('snadna')" id="snadna">Snadná</button>
             <button onclick="nastavObtiznost('stredni')" id="stredni">Střední</button>
             <button onclick="nastavObtiznost('tezka')" id="tezka">Těžká</button>
@@ -52,13 +54,6 @@
         </div>
     </div>
     <script src="script.js"></script>
-    <script>
-        const menuIcon = document.querySelector('.menu-icon');
-        const menu = document.getElementById('menu');
-
-        menuIcon.addEventListener('click', () => {
-            menu.classList.toggle('show');
-        });
-    </script>
+    <script src="../../MENU.js"></script>
 </body>
 </html>

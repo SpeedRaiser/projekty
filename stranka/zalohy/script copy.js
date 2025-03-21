@@ -65,22 +65,12 @@ function handlePieceClick(event) {
     if ((currentPlayer === 'white' && piece.textContent.match(/[♙♖♘♗♕♔]/)) ||
         (currentPlayer === 'black' && piece.textContent.match(/[♟♜♞♝♛♚]/))) {
         
-        // Pokud je figurka již vybraná, skryjeme zvýraznění
-        if (selectedPiece === piece) {
-            selectedPiece.classList.remove('selected');
-            clearHighlights(); // Skryjeme zvýraznění
-            selectedPiece = null; // Resetujeme vybranou figurku
-            return; // Ukončíme funkci
-        }
-
-        // Pokud je jiná figurka vybraná, zrušíme její výběr
         if (selectedPiece) {
             selectedPiece.classList.remove('selected');
         }
-
-        selectedPiece = piece; // Nastavíme novou vybranou figurku
-        selectedSquare = square; // Uložíme aktuální čtverec
-        selectedPiece.classList.add('selected'); // Zvýrazníme vybranou figurku
+        selectedPiece = piece;
+        selectedSquare = square;
+        selectedPiece.classList.add('selected');
 
         // Vypočítáme dostupná pole pro tuto figurku
         highlightValidMoves(row, col, piece.textContent);
@@ -244,46 +234,8 @@ function promotePawn(pawn) {
     const options = modal.querySelectorAll('.promotion-option');
     options.forEach(option => {
         option.onclick = function() {
-            const pieceType = option.getAttribute('data-piece');
-            let newPiece;
-
-            // Zkontrolujeme, zda je hráč černý nebo bílý a nastavíme správnou figurku
-            if (currentPlayer === 'white') {
-                // Pokud je černý hráč, nastavíme černou verzi figurky
-                switch (pieceType) {
-                    case 'rook':
-                        newPiece = '♜'; // Černá věž
-                        break;
-                    case 'knight':
-                        newPiece = '♞'; // Černý jezdec
-                        break;
-                    case 'bishop':
-                        newPiece = '♝'; // Černý střelec
-                        break;
-                    case 'queen':
-                        newPiece = '♛'; // Černá dáma
-                        break;
-                }
-            } else {
-                // Pokud je bílý hráč, nastavíme bílou verzi figurky
-                switch (pieceType) {
-                    case 'rook':
-                        newPiece = '♖'; // Bílá věž
-                        break;
-                    case 'knight':
-                        newPiece = '♘'; // Bílý jezdec
-                        break;
-                    case 'bishop':
-                        newPiece = '♗'; // Bílý střelec
-                        break;
-                    case 'queen':
-                        newPiece = '♕'; // Bílá dáma
-                        break;
-                }
-            }
-
-            pawn.textContent = newPiece; // Nastavíme novou figurku
-            modal.style.display = 'none'; // Skryjeme modální okno
+            pawn.textContent = option.getAttribute('data-piece');
+            modal.style.display = 'none';
         };
     });
 }
@@ -406,4 +358,3 @@ updateCurrentPlayerDisplay();
 
 // Přidání události pro restartovací tlačítko
 document.getElementById('restartButton').addEventListener('click', resetBoard);
-

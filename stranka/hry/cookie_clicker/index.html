@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cookie clicker</title>
+    <link rel="stylesheet" href="../../styly.css">
     <link rel="stylesheet" href="styly.css">
 </head>
 <body>
     <header>
         <div class="menu-icon">☰</div>
-        <h1 class="title">chytrý název</h1>
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Hledat hry...">
-            <button class="search-button">🔍</button>
-        </div>
+        <h1 class="title">MiniGameZone</h1>
         <div class="settings-icon">⚙️</div>
     </header>
     <div class="menu" id="menu">
@@ -23,30 +20,28 @@
             <li><a href="../../zanry/puzzle.html">🧩 Puzzle</a></li>
             <li><a href="../../zanry/strategie.html">🧠 Strategie</a></li>
             <li><a href="../../zanry/action.html">🔥 Akční</a></li>
-            <li><a href="#"> Pro 2 hráče</a></li>
-            <li><a href="#"> Mobilní</a></li>
+            <li><a href="../../zanry/2players.html">👨‍👨 Pro 2 hráče</a></li>
         </ul>
+    </div>
+    <div class="settings-menu">
+        <h2>Nastavení</h2>
+        <label class="night-mode-label">
+            <input type="checkbox" id="night-mode"> Noční režim
+        </label>
     </div>
     <div class="main-content">
         <div class="cookie" id="cookie"></div>
         <div class="upgrades" id="upgrades">
             <h2>Vylepšení</h2>
-            <button class="upgrade-btn" data-cost="100" data-increment="0" data-auto-clicker="true">Automatické klikání (cena: 100 cookies)</button>
-            <button class="upgrade-btn" data-cost="50" data-increment="1">Zvýšení kliknutí +1 (cena: 50 cookies)</button>
-            <button class="upgrade-btn" data-cost="150" data-increment="2">Zvýšení kliknutí x2 (cena: 150 cookies)</button>
+            <button class="upgrade-btn" data-cost="100" data-initial-cost="100" data-increment="0" data-auto-clicker="true">Automatické klikání (cena: 100 cookies)</button>
+            <button class="upgrade-btn" data-cost="50" data-initial-cost="50" data-increment="1">Zvýšení kliknutí +1 (cena: 50 cookies)</button>
+            <button class="upgrade-btn" data-cost="150" data-initial-cost="150" data-increment="2">Zvýšení kliknutí x2 (cena: 150 cookies)</button>
         </div>
     </div>
     
     <div id="skore">cookies: 0</div>
     <button id="resetBtn">Reset</button>
     <script src="script.js"></script>
+    <script src="../../MENU.js"></script>
 </body>
-<script>
-    const menuIcon = document.querySelector('.menu-icon');
-    const menu = document.getElementById('menu');
-
-    menuIcon.addEventListener('click', () => {
-        menu.classList.toggle('show');
-    });
-</script>
 </html>

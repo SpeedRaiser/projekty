@@ -406,4 +406,3 @@ updateCurrentPlayerDisplay();
 
 // Přidání události pro restartovací tlačítko
 document.getElementById('restartButton').addEventListener('click', resetBoard);
-

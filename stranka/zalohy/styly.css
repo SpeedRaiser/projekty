@@ -1,9 +1,19 @@
 /* hlavička*/
 header{
+    background-color: #fff; /* Bílá barva pozadí */
     border-bottom: 1px solid lightgray;
     display: flex;
-    justify-content: center;
-    justify-items: center;
+    justify-content: space-between; /* Rozložení mezi ikonami */
+    align-items: center; /* Vertikální zarovnání */
+    padding: 10px 20px; /* Vnitřní okraje */
+}
+
+/* Základní styl pro tělo */
+body {
+    font-family: system-ui; /* Změna písma pro celou stránku */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Světle šedé pozadí */
 }
 
 .menu-icon {
@@ -18,6 +28,7 @@ header{
     margin-bottom: 10px;
     margin-left: auto;
     transition: transform 0.3s; /* pro plynulý přechod */
+    user-select: none;
 }
 
 .settings-icon:hover {
@@ -25,35 +36,11 @@ header{
 }
 
 .title {
-    font-size: 2em; 
-    margin: 0; 
-    font-family: system-ui;
-    margin-left: 15px; 
-}
-/* pro vyhledávač*/
-.search-container {
-    display: flex;
-    align-items: center;
-    background-color: #f0f0f0; 
-    border-radius: 20px;
-    height: 40px;
-    margin: 0 auto;
-}
-
-#search {
-    border: none; 
-    outline: none;
-    padding: 8px; 
-    border-radius: 20px; 
-    width: 250px; 
-    background-color: #f0f0f0; 
-    font-family: system-ui;
-}
-
-.search-button {
-    border: none;
-    cursor: pointer;
-    margin-right: 5px;
+    font-size: 2.5em; /* Velikost písma pro titulek */
+    margin: 0; /* Odstranění okrajů */
+    font-family: system-ui; 
+    text-align: center; /* Zarovnání na střed */
+    width: 100%; /* Přidáno pro zajištění, že se text zarovná na střed */
 }
 
 h2 {
@@ -72,7 +59,6 @@ p {
     font-family: system-ui; /* Typ písma */
     line-height: 1.5; /* Výška řádku pro lepší čitelnost */
 }
-
 /* pro tlačítka minihry na main stránce*/
 .game-container {
     display: flex;
@@ -80,8 +66,8 @@ p {
 }
 
 .game-box {
-    width: 200px; 
-    height: 150px; 
+    width: 200px; /* Výchozí šířka */
+    height: 150px; /* Výchozí výška */
     background-size: cover; /* Přizpůsobení obrázku */
     background-position: center; 
     border-radius: 10px; 
@@ -90,16 +76,16 @@ p {
     justify-content: center; 
     font-size: 1.5em;
     font-family: system-ui;
-    margin: 10px; /* volný místo mezi boxy */
+    margin: 10px; /* Volný místo mezi boxy */
     color: white;
     padding: 10px;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
     text-decoration: none;
 }
 
 .game-box:hover {
     transform: scale(1.05); /* Zvětšení boxu při najetí myší */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stín při najetí myší */
 }
 
 /* název hry při najetí myši */
@@ -125,7 +111,7 @@ p {
     left: -250px; /* skryti mimo obrazovku */
     top: 61px; 
     width: 35px; 
-    height: 100vh;
+    height: 100%;
     background-color: white;
     border-right: 1px solid lightgray;
     transition: left 0.3s, width 0.3s; /* Přidat přechod pro šířku */
@@ -154,8 +140,12 @@ p {
 }
 
 .menu li {
-    padding: 15px;
-    transform: translateX(-2px); 
+    padding: 10px 15px; /* Vnitřní okraje pro položky menu */
+    transition: background-color 0.3s; /* Přechod pro pozadí */
+}
+
+.menu li:hover {
+    background-color: #f0f0f0; /* Změna pozadí při najetí myší */
 }
 
 .menu a {
@@ -163,3 +153,188 @@ p {
     font-family: system-ui;
     color: black;
 }
+
+/* MENU PRO NASTAVENI */
+
+.settings-menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: white;
+    border: 1px solid lightgray;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Skryté, dokud není zobrazeno */
+    z-index: 1000;
+    border-radius: 8px; /* Zaoblení rohů */
+}
+
+.settings-menu.show {
+    display: block; /* Zobrazit menu */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Ztmavení pozadí */
+    display: none; /* Skryté, dokud není zobrazeno */
+    z-index: 900; /* Pod menu */
+}
+
+.overlay.show {
+    display: block; /* Zobrazit overlay */
+}
+
+/* NOCNI REZIM */
+.night-mode-label {
+    display: flex; /* Flexbox pro zarovnání */
+    align-items: center; /* Vertikální zarovnání */
+    margin-top: 15px; /* Okraj nahoře */
+    margin-left: 15px;
+}
+
+/* Styl pro checkbox */
+.night-mode-label input[type="checkbox"] {
+    width: 20px; /* Šířka checkboxu */
+    height: 20px; /* Výška checkboxu */
+    margin-right: 10px; /* Okraj vpravo */
+    cursor: pointer; /* Ukazatel myši při najetí */
+}
+
+/* Styl pro text nočního režimu */
+.night-mode-label span {
+    font-size: 1.1em; /* Velikost písma pro text */
+    color: #333; /* Barva textu */
+}
+
+/* Styl pro menu žánrů v nočním režimu */
+body.night-mode .menu {
+    background-color: #1e1e1e; /* Tmavě šedé pozadí pro menu */
+    border-right: 1px solid #444; /* Tmavší okraj */
+}
+
+body.night-mode .menu a {
+    color: #ffffff; /* Bílý text pro odkazy v menu */
+}
+
+body.night-mode .menu li:hover {
+    background-color: #333; /* Tmavší pozadí při najetí myší */
+}
+
+/* Styl pro noční režim */
+body.night-mode {
+    background-color: #121212; /* Tmavé pozadí */
+    color: #ffffff; /* Bílý text */
+}
+
+body.night-mode header {
+    background-color: #1e1e1e; /* Tmavě šedá hlavička */
+    border-bottom: 1px solid #444; /* Tmavší okraj */
+}
+
+body.night-mode .title {
+    color: #ffffff; /* Bílý text pro titulek */
+}
+
+body.night-mode .settings-menu {
+    background-color: #1e1e1e; /* Tmavě šedé pozadí pro menu */
+    border: 1px solid #444; /* Tmavší okraj */
+}
+
+body.night-mode .menu li a {
+    color: #ffffff; /* Bílý text pro odkazy v menu */
+}
+
+body.night-mode .menu li:hover {
+    background-color: #333; /* Tmavší pozadí při najetí myší */
+}
+
+/* Styl pro text v menu nastavení */
+body.night-mode .settings-menu h2 {
+    color: #ffffff; /* Bílý text pro nadpis */
+}
+
+body.night-mode .settings-menu label {
+    color: #ffffff; /* Bílý text pro popis checkboxu */
+}
+
+/* Responzivita pro tablet */
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.8em; /* Zmenšení velikosti písma pro tablety */
+    }
+
+    .menu-icon, .settings-icon {
+        font-size: 1.5em; /* Zmenšení velikosti ikon pro tablety */
+    }
+
+    .game-box {
+        width: 150px; /* Zmenšení šířky pro tablety */
+        height: 120px; /* Zmenšení výšky pro tablety */
+        font-size: 1.2em; /* Zmenšení velikosti písma pro tablety */
+    }
+}
+
+/* Responzivita pro mobil */
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.5em; 
+    }
+
+    .menu-icon, .settings-icon {
+        font-size: 1.2em; 
+    }
+
+    .menu{
+        top: 58px;
+    }
+
+    header {
+        padding: 10px; 
+        position: fixed; 
+        width: 100%; 
+        top: 0; 
+        left: 0; 
+    }
+
+    .game-container {
+        justify-content: space-between; 
+        flex-wrap: wrap;
+        justify-content: center; 
+        margin-top: 60px; 
+    }
+
+    .game-box {
+        width: calc(50% - 10px); 
+        height: 140px;
+        font-size: 1em; 
+    }
+
+    .settings-icon {
+        margin-right: 20px; 
+    }
+
+    /* Skryje hry s touto třídou*/
+    .hide-on-mobile {
+        display: none; 
+    }
+
+    .settings-menu {
+        width: 250px; /* Zmenšení šířky menu pro mobilní zařízení */
+        padding: 15px; /* Zmenšení vnitřních okrajů pro mobilní zařízení */
+    }
+}
+
+
+
+/* Skryje posuvník, idk jestli to funguje */
+.no-scroll {
+    overflow: hidden; 
+}
+
+

@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>šachy</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../../styly.css">
 </head>
 <body>
     <header>
         <div class="menu-icon">☰</div>
-        <h1 class="title">chytrý název</h1>
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Hledat hry...">
-            <button class="search-button">🔍</button>
-        </div>
+        <h1 class="title">MiniGameZone</h1>
         <div class="settings-icon">⚙️</div>
     </header>
     <div class="menu" id="menu">
@@ -23,34 +20,41 @@
             <li><a href="../../zanry/puzzle.html">🧩 Puzzle</a></li>
             <li><a href="../../zanry/strategie.html">🧠 Strategie</a></li>
             <li><a href="../../zanry/action.html">🔥 Akční</a></li>
-            <li><a href="#"> Pro 2 hráče</a></li>
-            <li><a href="#"> Mobilní</a></li>
+            <li><a href="../../zanry/2players.html">👨‍👨 Pro 2 hráče</a></li>
         </ul>
+    </div>
+    <div class="settings-menu">
+        <h2>Nastavení</h2>
+        <label class="night-mode-label">
+            <input type="checkbox" id="night-mode"> Noční režim
+        </label>
     </div>
     <div id="currentPlayerDisplay" class="player-display">Na tahu: Bílý</div>
     <div class="game-container">
         <div class="board">
-            <!-- Dynamicky naplníme šachovnici pomocí JavaScriptu -->
+            
         </div>
+        
     </div>
-    <div id="promotionModal" class="modal">
-        <div class="modal-content">
-            <p>Vyberte figuru pro proměnu:</p>
-            <button class="promotion-option" data-piece="♕">Dáma</button>
-            <button class="promotion-option" data-piece="♖">Věž</button>
-            <button class="promotion-option" data-piece="♗">Střelec</button>
-            <button class="promotion-option" data-piece="♘">Jezdec</button>
+    <div class="button-container">
+        <button id="restartButton" class="restartButton">Restartovat hru</button>
+    </div>
+    <div id="promotionModal" class="promotion-modal">
+        <h2>Vyberte figurku pro povýšení</h2>
+        <div class="promotion-options">
+            <div class="promotion-option" data-piece="rook">Věž</div>
+            <div class="promotion-option" data-piece="knight">Jezdec</div>
+            <div class="promotion-option" data-piece="bishop">Střelec</div>
+            <div class="promotion-option" data-piece="queen">Dáma</div>
         </div>
     </div>
 
     <script src="script.js"></script>
+    <script src="../../MENU.js"></script>
+    <script>
+        window.onload = function() {
+            alert("Vítejte ve zjednodušených šachách. Co to znamená? Nefunguje zde rošáda a hra vás neupozorní na možnost, že vám zemře král.");
+        };
+    </script>
 </body>
-<script>
-    const menuIcon = document.querySelector('.menu-icon');
-    const menu = document.getElementById('menu');
-
-    menuIcon.addEventListener('click', () => {
-        menu.classList.toggle('show');
-    });
-</script>
 </html>

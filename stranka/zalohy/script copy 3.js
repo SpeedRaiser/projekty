@@ -12,7 +12,6 @@ let rychlost = 100; // Výchozí rychlost hry
 let aktualniObtiznost = ''; // Výchozí obtížnost
 let hadX = 100; // Nová proměnná pro X pozici hlavy hada
 let hadY = 100; // Nová proměnná pro Y pozici hlavy hada
-let canChangeDirection = true; // Nová proměnná pro sledování cooldownu
 
 // Inicializace obrázku
 const jidloObrazek = new Image();
@@ -220,9 +219,9 @@ function prohra() {
 
 document.addEventListener('keydown', zmenSmer);
 
-function zmenSmer(event) {
-    if (!canChangeDirection) return; // Pokud není možné změnit směr, ukonči funkci
 
+
+function zmenSmer(event) {
     const klic = event.key;
 
     if (klic === 'ArrowLeft' && dx === 0) { dx = -velikostBunky; dy = 0; }  
@@ -248,17 +247,6 @@ function zmenSmer(event) {
     if ((klic === 'ArrowUp' && had.length > 0 && dy !== 0) || (klic === 'ArrowDown' && had.length > 0 && dy !== 0)) {
         return; // Zabránit otočení nahoru nebo dolů, pokud had již není v pohybu
     }
-
-    let wait = 100;
-    if (obtiznost === 'stredni'){
-        wait = 50;
-    } else if(aktualniObtiznost === 'tezka'){
-        wait = 25;
-    }
-    canChangeDirection = false; // Nastavit cooldown
-    setTimeout(() => {
-        canChangeDirection = true; // Po 0,1 s povolit změnu směru
-    }, wait); // 100 ms = 0,1 s
 }
 
 // Funkce pro návrat do menu

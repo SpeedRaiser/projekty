@@ -2,7 +2,7 @@ const ceskaSlovaList = [
     "stroj", "slovo", "místo", "kniha", "srdce", "písek", "obraz",
     "duben", "štěrk", "strop", "kámen", "hříva", "tábor", "láska", "pohár", "závod",
     "tráva", "báseň","život", "plány","karta", "zebra", "dárek","práce","kočka","město", "pasta",
-    "malba","třída","černý", "pepek", "olovo", "sigma"
+    "malba","třída","černý", "pepek", "olovo", "sigma","kebab"
 ];
 
 // Funkce pro náhodný výběr slova
@@ -169,3 +169,4 @@ const animateTileDance = (row) => {
         tile.classList.add("animate__bounce", `animate__delay-${index}s`) 
     });
 }
+

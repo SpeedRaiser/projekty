@@ -9,34 +9,30 @@
 <body>
     <header>
         <div class="menu-icon">☰</div>
-        <h1 class="title">chytrý název</h1>
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Hledat hry...">
-            <button class="search-button">🔍</button>
-        </div>
+        <h1 class="title">MiniGameZone</h1>
         <div class="settings-icon">⚙️</div>
     </header>
-    <h2>Strategie</h2>
-    <p>Rádi přemýšlíte nebo plánujete o 3 tazích dopředu než nepřítel? Pokud ano, neváhejte a připojte se k nám na cestě k vítězství!</p>
+    <h2 class="nadpis">Strategie</h2>
+    <p class="text">Rádi přemýšlíte nebo plánujete o 3 tazích dopředu než nepřítel? Pokud ano, neváhejte a připojte se k nám na cestě k vítězství!</p>
     <div class="game-container">
         <a href="../hry/sachy/index.html" class="game-box" style="background-image: url('../obrazky/sachy_main.png');" data-title="Šachy"></a>
     </div>
     <div class="menu" id="menu">
         <ul>
             <li><a href="../index.html">🏠 Domů</a></li>
-            <li><a href="klikacky.html">👆 Klikačky</a></li>
-            <li><a href="puzzle.html">🧩 Puzzle</a></li>
-            <li><a href="strategie.html">🧠 Strategie</a></li>
-            <li><a href="action.html">🔥 Akční</a></li>
+            <li><a href="../zanry/klikacky.html">👆 Klikačky</a></li>
+            <li><a href="../zanry/puzzle.html">🧩 Puzzle</a></li>
+            <li><a href="../zanry/strategie.html">🧠 Strategie</a></li>
+            <li><a href="../zanry/action.html">🔥 Akční</a></li>
+            <li><a href="../zanry/2players.html">👨‍👨 Pro 2 hráče</a></li>
         </ul>
     </div>
+    <div class="settings-menu">
+        <h2>Nastavení</h2>
+        <label class="night-mode-label">
+            <input type="checkbox" id="night-mode"> Noční režim
+        </label>
+    </div>
+    <script src="../MENU.js"></script>
 </body>
-<script>
-    const menuIcon = document.querySelector('.menu-icon');
-    const menu = document.getElementById('menu');
-
-    menuIcon.addEventListener('click', () => {
-        menu.classList.toggle('show');
-    });
-</script>
 </html>

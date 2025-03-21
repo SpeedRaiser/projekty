@@ -9,34 +9,30 @@
 <body>
     <header>
         <div class="menu-icon">☰</div>
-        <h1 class="title">chytrý název</h1>
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Hledat hry...">
-            <button class="search-button">🔍</button>
-        </div>
+        <h1 class="title">MiniGameZone</h1>
         <div class="settings-icon">⚙️</div>
     </header>
-    <h2>Akční</h2>
-    <p>Chcete nějakou akci nebo si jen zastřílet? Máme pro vás připravné 2D hry.</p>
+    <h2 class="nadpis">Akční</h2>
+    <p class="text">Chcete nějakou akci nebo si jen zastřílet? Máme pro vás připravné 2D hry.</p>
     <div class="game-container">
         <a href="../hry/snake/index.html" class="game-box" style="background-image: url('../obrazky/snake_main.png');" data-title="Had"></a>
     </div>
     <div class="menu" id="menu">
         <ul>
             <li><a href="../index.html">🏠 Domů</a></li>
-            <li><a href="klikacky.html">👆 Klikačky</a></li>
-            <li><a href="puzzle.html">🧩 Puzzle</a></li>
-            <li><a href="strategie.html">🧠 Strategie</a></li>
-            <li><a href="action.html">🔥 Akční</a></li>
+            <li><a href="../zanry/klikacky.html">👆 Klikačky</a></li>
+            <li><a href="../zanry/puzzle.html">🧩 Puzzle</a></li>
+            <li><a href="../zanry/strategie.html">🧠 Strategie</a></li>
+            <li><a href="../zanry/action.html">🔥 Akční</a></li>
+            <li><a href="../zanry/2players.html">👨‍👨 Pro 2 hráče</a></li>
         </ul>
     </div>
+    <div class="settings-menu">
+        <h2>Nastavení</h2>
+        <label class="night-mode-label">
+            <input type="checkbox" id="night-mode"> Noční režim
+        </label>
+    </div>
+    <script src="../MENU.js"></script>
 </body>
-<script>
-    const menuIcon = document.querySelector('.menu-icon');
-    const menu = document.getElementById('menu');
-
-    menuIcon.addEventListener('click', () => {
-        menu.classList.toggle('show');
-    });
-</script>
 </html>

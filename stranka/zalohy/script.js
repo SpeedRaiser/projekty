@@ -186,4 +186,3 @@ document.querySelectorAll('.upgrade-btn').forEach(button => {
         }
     });
 });
-aktualizujTlacitka

@@ -9,16 +9,12 @@
 <body>
     <header>
         <div class="menu-icon">☰</div>
-        <h1 class="title">chytrý název</h1>
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Hledat hry...">
-            <button class="search-button">🔍</button>
-        </div>
+        <h1 class="title">MiniGameZone</h1>
         <div class="settings-icon">⚙️</div>
     </header>
     <div class="game-container">
         <a href="hry/wordle/index.html" class="game-box"style="background-image: url('obrazky/wordle_main.png');" data-title="Wordle"></a>
-        <a href="hry/snake/index.html" class="game-box" style="background-image: url('obrazky/snake_main.png');" data-title="Had"></a>
+        <a href="hry/snake/index.html" class="game-box hide-on-mobile" style="background-image: url('obrazky/snake_main.png');" data-title="Had"></a>
         <a href="hry/sachy/index.html" class="game-box" style="background-image: url('obrazky/sachy_main.png');" data-title="Šachy"></a>
         <a href="hry/cookie_clicker/index.html" class="game-box" style="background-image: url('obrazky/cookie_main.png');" data-title="cookie clicker"></a>
     </div>
@@ -29,18 +25,15 @@
             <li><a href="zanry/puzzle.html">🧩 Puzzle</a></li>
             <li><a href="zanry/strategie.html">🧠 Strategie</a></li>
             <li><a href="zanry/action.html">🔥 Akční</a></li>
-            <li><a href="#"> Pro 2 hráče</a></li>
-            <li><a href="#"> Mobilní</a></li>
-
+            <li><a href="zanry/2players.html">👨‍👨 Pro 2 hráče</a></li>
         </ul>
     </div>
+    <div class="settings-menu">
+        <h2>Nastavení</h2>
+        <label class="night-mode-label">
+            <input type="checkbox" id="night-mode"> Noční režim
+        </label>
+    </div>
+    <script src="MENU.js"></script>
 </body>
-<script>
-    const menuIcon = document.querySelector('.menu-icon');
-    const menu = document.getElementById('menu');
-
-    menuIcon.addEventListener('click', () => {
-        menu.classList.toggle('show');
-    });
-</script>
 </html>
