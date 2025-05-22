@@ -1,0 +1,143 @@
+.board {
+    display: grid;
+    grid-template-columns: repeat(8, 55px);
+    grid-template-rows: repeat(8, 55px);
+    gap: 0;
+    border: 4px solid #8b4513; /* Hnědý okraj kolem šachovnice */
+    border-radius: 8px; /* Zaoblení rohů pro lepší vzhled */
+    background-color: transparent; /* Pozadí šachovnice, aby okraj byl viditelný */
+    margin: 20px auto; /* Přidání automatických okrajů pro centrální umístění */
+}
+
+@media (max-width: 600px) {
+    .board {
+        transform: scale(0.8); /* Zmenší celou šachovnici na 80% */
+        transform-origin: top left; /* Udržuje pozici šachovnice */
+        grid-template-columns: repeat(8, 45px);
+        grid-template-rows: repeat(8, 45px);
+        gap: 1px; /* Mezery mezi poli */
+        border: 4px;
+        border-radius: 5px; /* Přidá zaoblení rohů, pokud je potřeba */
+        margin-left: 50px
+    }
+
+}
+
+.square {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #7f4500; /* Okraje jednotlivých políček s tmavším hnědým odstínem */
+    font-size: 40px; /* Zvětšíme font pro figurky */
+    cursor: pointer;
+}
+
+.square.black {
+    background-color: #8b4513; /* Tmavě hnědá pro černá pole */
+}
+
+.square.white {
+    background-color: #d2b48c; /* Světle hnědá pro bílá pole (barva "tan") */
+}
+
+.square.highlight {
+    background-color: #90ee90; /* Světle zelená pro označená pole */
+}
+
+.modal {
+    display: none; /* Skryté ve výchozím nastavení */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 20% auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 200px; /* Zmenšená šířka */
+    text-align: center;
+}
+
+.promotion-modal {
+    display: none; /* Skryté ve výchozím nastavení */
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white; /* Barva pozadí */
+    border: 1px solid #888; /* Okraj */
+    border-radius: 8px; /* Zaoblení rohů */
+    padding: 20px; /* Vnitřní okraje */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stín */
+}
+
+.promotion-options {
+    display: flex;
+    justify-content: space-around; /* Rovnoměrné rozložení */
+    margin-top: 10px; /* Okraj nahoře */
+}
+
+.promotion-option {
+    padding: 10px;
+    font-size: 24px; /* Velikost písma */
+    cursor: pointer; /* Ukazatel myši při najetí */
+    border: 1px solid #ccc; /* Okraj */
+    border-radius: 4px; /* Zaoblení rohů */
+    transition: background-color 0.3s; /* Plynulý přechod pro změnu barvy */
+}
+
+.promotion-option:hover {
+    background-color: #f0f0f0; /* Světle šedá při najetí myší */
+}
+
+.player-display {
+    font-family: system-ui;
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+    margin-top: 5px;
+}
+
+.white-piece {
+    color: white; /* Nastavíme barvu na bílou */
+    user-select: none;
+}
+
+.black-piece {
+    color: black; /* Nastavíme barvu na černou */
+    user-select: none; 
+}
+
+body.night-mode .player-display{
+    color: white;
+}
+
+#restartButton {
+    background-color: red; /* Zelená barva pozadí */
+    color: white; /* Bílý text */
+    border: none; /* Bez okraje */
+    padding: 10px 20px; /* Vnitřní okraje */
+    font-size: 16px; /* Velikost písma */
+    cursor: pointer; /* Ukazatel myši při najetí */
+    border-radius: 5px; /* Zaoblení rohů */
+}
+
+#restartButton:hover{
+    background-color: darkred;
+}
+
+.button-container {
+    display: flex; /* Použijeme flexbox */
+    justify-content: center; /* Horizontální zarovnání na střed */
+    margin-top: 10px; /* Přidání okraje nahoře pro oddělení od šachovnice */
+}
